@@ -54,11 +54,11 @@ Data文件导出工具(配置数据导出工具)：\\10.110.85.184\iGIX发布\�
 
 下面详细介绍组织信息维护常用的分配数据权限方式。
 
-<font color='#32cdff' size='3'>常用的分配方式，不是必须这样！</font>
+<p><font color='#32cdff' size='3'>常用的分配方式，不是必须这样！</font><p>
 
-<font color='#00ff74' size='3'>常用的分配方式，不是必须这样！！</font>
+<p><font color='#00ff74' size='3'>常用的分配方式，不是必须这样！！</font></p>
 
-<font color='#fb7202' size='3'>常用的分配方式，不是必须这样！！！</font>
+<p><font color='#fb7202' size='3'>常用的分配方式，不是必须这样！！！</font></p>
 
 #### 组织岗分配数据权限
 
@@ -96,11 +96,11 @@ Data文件导出工具(配置数据导出工具)：\\10.110.85.184\iGIX发布\�
 
 组织岗分配数据权限，**国企组织行权限**不能设置维度。
 
-<font color='#32cdff' size='3'>维度可删除，但是不能删除行权限！</font>
+<p><font color='#32cdff' size='3'>维度可删除，但是不能删除行权限！</font></p>
 
-<font color='#00ff74' size='4'>维度可删除，但是不能删除行权限！！</font>
+<p><font color='#00ff74' size='4'>维度可删除，但是不能删除行权限！！</font></p>
 
-<font color='#fb7202' size='5'>维度可删除，但是不能删除行权限！！！</font>
+<p><font color='#fb7202' size='5'>维度可删除，但是不能删除行权限！！！</font></p>
 
 ![image-20210329144104431](组织信息问题记录.assets/image-20210329144104431.png)
 

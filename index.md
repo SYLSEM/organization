@@ -312,7 +312,7 @@ select * from gsprefconfiginfo where upper(referrer) like upper('%<font color='r
 
 ### 运行时定制
 
-【定制平台】——【业务定制平台】——【业务配置】——【业务配置中心】
+【<span id='RunTime'>定制平台</span>】——【业务定制平台】——【业务配置】——【业务配置中心】
 
 ![image-20210330184612493](index.assets/image-20210330184612493.png)
 
@@ -344,3 +344,46 @@ select * from gsprefconfiginfo where upper(referrer) like upper('%<font color='r
 
 ![image-20210330184408425](index.assets/image-20210330184408425.png)
 
+### 变更日志
+
+【<span id='RunTime'>定制平台</span>】——【业务定制平台】——【业务变更日志】——【日志配置】中配置日志变更记录范围。
+
+![image-20210404104404255](index.assets/image-20210404104404255.png)
+
+![image-20210404104432091](index.assets/image-20210404104432091.png)
+
+注意：变更日志是需要配置Yaml文件的，使用变更日志前请核实是否已经正确配置。
+
+```yaml
+#如果使用变更日志，请修改文件：\jstack\runtime\application.yaml
+#配置节位置：
+event-configurations:
+  eventManagers:
+  - name: BefSaveEventManager
+    listeners:
+#增加以下配置（注意yaml文件缩进！）：
+	- name: Chgdr
+      implClassName: com.inspur.edp.chgdr.adapter.bef.ChgdrBefSaveEventListener
+```
+
+
+
+## 二开部分
+
+### 接口二开
+
+组织信息目前已支持二开的接口有：生成编号、生成标识码、保存校验、引入系统组织，查询SASAServiceRule表查看详细。
+
+#### 二开方式
+
+待补充
+
+### 功能二开
+
+#### 运行时定制
+
+[运行时定制](#RunTime)
+
+#### IGIX二开
+
+两点建议：最小化引入，只引入需要的，忌大而全的全部引入所有字段；建立公共的元数据，能使用公共的元数据就使用公共的，不要盲目建立。

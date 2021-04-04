@@ -221,7 +221,7 @@ Order by 分级码;
 <p>附：常用处理方式：</p>
 <p>select * from gsprefconfiginfo where upper(referrer) like upper(&#39;%<font color='red'>ConfigID</font>%&#39;)，查询出引发异常数据，删除或者补全。</p>
 <h3 id="-">运行时定制</h3>
-<p>【定制平台】——【业务定制平台】——【业务配置】——【业务配置中心】</p>
+<p>【<span id='RunTime'>定制平台</span>】——【业务定制平台】——【业务配置】——【业务配置中心】</p>
 <p><img src="index.assets/image-20210330184612493.png" alt="image-20210330184612493"></p>
 <p><img src="index.assets/image-20210330184706461.png" alt="image-20210330184706461"></p>
 <p><img src="index.assets/image-20210330184815639.png" alt="image-20210330184815639"></p>
@@ -237,6 +237,31 @@ Order by 分级码;
 <p>在菜单【系统公共】 —— 【系统管理】—— 【权限管理】—— 【功能组】中维护组织信息操作权限。目前仅支持增删改操作权限，对应组织信息维护中【新增同级】【新增子级】【编辑】【保存】按钮操作权限。</p>
 <p><img src="index.assets/image-20210330184216798.png" alt="image-20210330184216798"></p>
 <p><img src="index.assets/image-20210330184408425.png" alt="image-20210330184408425"></p>
+<h3 id="-">变更日志</h3>
+<p>【<span id='RunTime'>定制平台</span>】——【业务定制平台】——【业务变更日志】——【日志配置】中配置日志变更记录范围。</p>
+<p><img src="index.assets/image-20210404104404255.png" alt="image-20210404104404255"></p>
+<p><img src="index.assets/image-20210404104432091.png" alt="image-20210404104432091"></p>
+<p>注意：变更日志是需要配置Yaml文件的，使用变更日志前请核实是否已经正确配置。</p>
+<pre><code class="lang-yaml">#如果使用变更日志，请修改文件：\jstack\runtime\application.yaml
+#配置节位置：
+event-configurations:
+  eventManagers:
+  - name: BefSaveEventManager
+    listeners:
+#增加以下配置（注意yaml文件缩进！）：
+    - name: Chgdr
+      implClassName: com.inspur.edp.chgdr.adapter.bef.ChgdrBefSaveEventListener
+</code></pre>
+<h2 id="-">二开部分</h2>
+<h3 id="-">接口二开</h3>
+<p>组织信息目前已支持二开的接口有：生成编号、生成标识码、保存校验、引入系统组织，查询SASAServiceRule表查看详细。</p>
+<h4 id="-">二开方式</h4>
+<p>待补充</p>
+<h3 id="-">功能二开</h3>
+<h4 id="-">运行时定制</h4>
+<p><a href="#RunTime">运行时定制</a></p>
+<h4 id="igix-">IGIX二开</h4>
+<p>两点建议：最小化引入，只引入需要的，忌大而全的全部引入所有字段；建立公共的元数据，能使用公共的元数据就使用公共的，不要盲目建立。</p>
 
           	</article>
         </div>

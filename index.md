@@ -18,6 +18,12 @@ http://edu.inspur.com/kng/course/package/document/d9e0fbdfc6d2457083f021aea0d7b4
 
 已推出补丁下载工具，推荐使用补丁下载工具获取补丁！
 
+补丁工具下载路径已迁移至
+
+```java
+\\10.110.80.110\产品服务器\内部自制工具安装盘\GS Cloud运维工具
+```
+
 
 
 Cloud产品基础知识

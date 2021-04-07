@@ -14,7 +14,7 @@ PS:定期清理日志文件，不要让日志文件太大。超过20M时，打�
 
 如何获取补丁及安装补丁等等
 
-http://edu.inspur.com/o2o/signup/signupcenterdetail.htm?tid=ba9a3438-cf34-49d1-b5f2-0c9890e68ce2&id=
+http://edu.inspur.com/kng/course/package/document/d9e0fbdfc6d2457083f021aea0d7b4d0_76d6eb1f8d3e402b95f1955172bbd71a.html?taskId=null&st=null&objectId=null&uniqueid=1617777110244
 
 已推出补丁下载工具，推荐使用补丁下载工具获取补丁！
 

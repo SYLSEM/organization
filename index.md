@@ -278,7 +278,7 @@ Order by 分级码;
 
 #### 数据引用检查时发生异常
 
-通常会有如下报错方式：
+<span id='remove'>通常会有如下报错方式：</span>
 
 ![image-20210329151911076](index.assets/image-20210329151911076.png)
 
@@ -378,12 +378,32 @@ event-configurations:
 
 待补充
 
+
+
+
+
+
+
 ### 功能二开
 
 #### 运行时定制
 
+##### 准备工作
+
+参考https://open.inspuronline.com/iGIX/#/document/mddoc/docs-gsp-cloud-ds%2Fdev-guide-beta%2Fadvanced-development%2Frtc-template%2Ffunc-desc%2Fprepare.md
+
+![image-20210407095416469](index.assets/image-20210407095416469.png)
+
+##### 操作手册
+
 [运行时定制](#RunTime)
+
+
 
 #### IGIX二开
 
-两点建议：最小化引入，只引入需要的，忌大而全的全部引入所有字段；建立公共的元数据，能使用公共的元数据就使用公共的，不要盲目建立。
+需要联系耿伟老师指导配置Maven库引用关系，正式库为**maven-ba-release**。
+
+**两点建议**：最小化引入，只引入需要的，忌大而全的全部引入所有字段；建立公共的元数据，能使用公共的元数据就使用公共的，不要盲目建立。
+
+无需删除引用检查的，不要选用引用检查功能，否则容易造成[数据引用检查时发生异常](#remove)。

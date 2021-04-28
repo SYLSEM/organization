@@ -80,11 +80,13 @@
 </code></pre>
 <p>Cloud产品基础知识</p>
 <p><a href="https://open.inspuronline.com/iGIX/#/document/mddoc/docs-gsp-cloud-ds%2Fdev-guide-beta%2Fdeploy-maintain%2Fdefault.md">https://open.inspuronline.com/iGIX/#/document/mddoc/docs-gsp-cloud-ds%2Fdev-guide-beta%2Fdeploy-maintain%2Fdefault.md</a></p>
-<p>补丁信息文件：\jstack\patchinfo\patchallmanagementlog.json</p>
+<p>补丁信息文件：\jstack\patchinfo\patchallmanagementlog.json。2103版本后jstack目录改名为server。</p>
 <p><strong>过期的补丁不能安装</strong></p>
 <p><strong>临时增量</strong>是针对当前项目需求，制作的临时补丁文件，仅适用于当前时间当前项目使用！不具有普适性，不能过期部署和部署其他环境！</p>
-<p>DBO部署工具：\tools\dbodeploy_java</p>
-<p>Data文件导入工具：\tools\dataimport_java</p>
+<p><strong>DBO部署工具</strong>：\tools\dbodeploy_java,<font color='red'>2103版本后</font>目录为\tools\deploy\dbo\startup-win.cmd</p>
+<p><strong>Data文件导入工具</strong>：\tools\dataimport_java,<font color='red'>2103版本后</font>目录为\tools\deploy\data\startup-win.cmd</p>
+<p>​    DBO或者Data文件可随意放置到一个目录，导入过程中会让输入文件目录。<strong>请输入年度</strong>选项直接回车即可。如下图所示：</p>
+<p><img src="index.assets/image-20210427144427083.png" alt="image-20210427144427083"></p>
 <p>Data文件导出工具(配置数据导出工具)：\10.110.85.184\iGIX发布\依赖组件</p>
 <p><img src="index.assets/image-20210329152911752.png" alt="image-20210329152911752"></p>
 <h2 id="-">组织信息部分</h2>
@@ -193,15 +195,20 @@ Order by 分级码;
 <h4 id="-">数据导入</h4>
 <p>下面模板后，请仔细阅读首页【<font color='red'>填写指南</font>】，里面针对模板中导入的每一个字段做了详细解释。</p>
 <p>导入需要注意<strong>分级码信息</strong>的填写，<strong><font color='red'>多数报错</font></strong>都是由此处引起的，分级码介绍请阅读<a href="#path">什么是分级码</a></p>
+<h5 id="-">数据抽取转换异常</h5>
 <p>导入报错时，请查看后台报错日志，通常报错情况如下：</p>
 <p><img src="index.assets/image-20210325170202931.png" alt="image-20210325170202931"></p>
 <p>查找对应sheet页即可排查问题。</p>
+<h5 id="-">执行保存数据库逻辑发生异常</h5>
+<p>此问题通常是<strong>导入导出规则</strong>中导入字段配置出现问题。打开日志文件，搜索<strong>执行保存数据库逻辑发生异常</strong>，即可发现引起报错原因。如下图所示：</p>
+<p><img src="index.assets/image-20210427150518329.png" alt="image-20210427150518329"></p>
+<p>解决方法：在<strong>导入导出规则</strong>中，去除勾选报错字段。推荐也执行<strong>同步实体变更</strong>，获取最新字段信息，配置导入模板。或者联系开发提供最新版本导入规则也可。</p>
 <h4 id="-">数据导出</h4>
 <p>有特定的需求或者对导出的Excel文件有特殊要求，在【导入导出规则】无法配置时，需要联系二开老师处理或者将需求反馈至开发处理。</p>
 <h3 id="-">什么是分级码</h3>
 <p><span id='path'>树的分级通常有两种情况</span>，即<strong>分级码</strong>分级和<strong>父节点</strong>分级。</p>
 <h4 id="-">分级码分级</h4>
-<p>分级码分级由分级码(path)、级数(layer)和是否明细(isDetail)组成。分级码4位一级，36进制；级数即该数据是第几级；是否明细表示该数据是否有子级，有子级非明细，无子级明细。示例如下：</p>
+<p>分级码分级由分级码(path)、级数(layer)和是否明细(isDetail)组成。分级码4位一级，36进制，通常以0001为第一级开始；级数即该数据是第几级；是否明细表示该数据是否有子级，有子级非明细0，无子级明细1。示例如下：</p>
 <p><img src="index.assets/image-20210326084451881.png" alt="image-20210326084451881"></p>
 <h4 id="-">父节点分级</h4>
 <p>父节点分级由父节点(parentElement)、级数(layer)、是否明细(isDetail)、顺序号(sequence)组成。父节点存储该数据的上级ID。示例入下：</p>

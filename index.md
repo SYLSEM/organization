@@ -32,7 +32,7 @@ https://open.inspuronline.com/iGIX/#/document/mddoc/docs-gsp-cloud-ds%2Fdev-guid
 
 
 
-补丁信息文件：\jstack\patchinfo\patchallmanagementlog.json
+补丁信息文件：\jstack\patchinfo\patchallmanagementlog.json。2103版本后jstack目录改名为server。
 
 
 
@@ -44,9 +44,15 @@ https://open.inspuronline.com/iGIX/#/document/mddoc/docs-gsp-cloud-ds%2Fdev-guid
 
 
 
-DBO部署工具：\tools\dbodeploy_java
+**DBO部署工具**：\tools\dbodeploy_java,<font color='red'>2103版本后</font>目录为\tools\deploy\dbo\startup-win.cmd
 
-Data文件导入工具：\tools\dataimport_java
+**Data文件导入工具**：\tools\dataimport_java,<font color='red'>2103版本后</font>目录为\tools\deploy\data\startup-win.cmd
+
+​	DBO或者Data文件可随意放置到一个目录，导入过程中会让输入文件目录。**请输入年度**选项直接回车即可。如下图所示：
+
+![image-20210427144427083](index.assets/image-20210427144427083.png)
+
+
 
 Data文件导出工具(配置数据导出工具)：\\10.110.85.184\iGIX发布\依赖组件
 
@@ -254,11 +260,21 @@ Order by 分级码;
 
 
 
+##### 数据抽取转换异常
+
 导入报错时，请查看后台报错日志，通常报错情况如下：
 
 ![image-20210325170202931](index.assets/image-20210325170202931.png)
 
 查找对应sheet页即可排查问题。
+
+##### 执行保存数据库逻辑发生异常
+
+此问题通常是**导入导出规则**中导入字段配置出现问题。打开日志文件，搜索**执行保存数据库逻辑发生异常**，即可发现引起报错原因。如下图所示：
+
+![image-20210427150518329](index.assets/image-20210427150518329.png)
+
+解决方法：在**导入导出规则**中，去除勾选报错字段。推荐也执行**同步实体变更**，获取最新字段信息，配置导入模板。或者联系开发提供最新版本导入规则也可。
 
 #### 数据导出
 
@@ -270,7 +286,7 @@ Order by 分级码;
 
 #### 分级码分级
 
-分级码分级由分级码(path)、级数(layer)和是否明细(isDetail)组成。分级码4位一级，36进制；级数即该数据是第几级；是否明细表示该数据是否有子级，有子级非明细，无子级明细。示例如下：
+分级码分级由分级码(path)、级数(layer)和是否明细(isDetail)组成。分级码4位一级，36进制，通常以0001为第一级开始；级数即该数据是第几级；是否明细表示该数据是否有子级，有子级非明细0，无子级明细1。示例如下：
 
 ![image-20210326084451881](index.assets/image-20210326084451881.png)
 
